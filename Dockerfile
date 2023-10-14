@@ -1,7 +1,7 @@
-FROM python:3.7
+FROM python:3.10
 
-ARG hug_email=default_value
-ARG hug_password=default_value
+ARG HUG_EMAIL=test
+ARG HUG_PASSWORD=test
 
 WORKDIR /app
 
@@ -10,7 +10,8 @@ RUN pip install -r requirements.txt
 
 COPY . .
 
-RUN sed -i "s|{{MY_VARIABLE}}|${MY_VARIABLE}|g" /app/config.ini
+RUN sed -i "s/HUG_EMAIL=.*/HUG_EMAIL=$HUG_EMAIL/" /app/config.ini
+RUN sed -i "s/HUG_PASSWORD=.*/HUG_PASSWORD=$HUG_PASSWORD/" /app/config.ini
 
 EXPOSE 5000
 

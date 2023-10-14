@@ -6,8 +6,8 @@ import configparser
 config = configparser.ConfigParser()
 config.read('config.ini')
 
-email = config.get('auth', 'hug_email')
-password = config.get('auth', 'hug_password')
+email = config.get('auth', 'HUG_EMAIL')
+password = config.get('auth', 'HUG_PASSWORD')
 
 # Log in to huggingface and grant authorization to huggingchat
 sign = Login(email, password)
@@ -40,4 +40,4 @@ def add_numbers():
     return jsonify({'result': result.text})
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host="0.0.0.0", debug=True)
