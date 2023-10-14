@@ -1,8 +1,18 @@
 from hugchat import hugchat
 from hugchat.login import Login
 
+import configparser
+
+# Load the configuration file
+config = configparser.ConfigParser()
+config.read('config.ini')
+
+# Access a setting from the configuration file
+email = config.get('auth', 'hug_email')
+password = config.get('auth', 'hug_password')
+
 # Log in to huggingface and grant authorization to huggingchat
-sign = Login("", "")
+sign = Login(email, password)
 cookies = sign.login()
 
 # Save cookies to the local directory
