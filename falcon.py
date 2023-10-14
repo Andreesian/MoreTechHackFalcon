@@ -3,11 +3,9 @@ from hugchat.login import Login
 
 import configparser
 
-# Load the configuration file
 config = configparser.ConfigParser()
 config.read('config.ini')
 
-# Access a setting from the configuration file
 email = config.get('auth', 'hug_email')
 password = config.get('auth', 'hug_password')
 
@@ -19,7 +17,6 @@ cookies = sign.login()
 cookie_path_dir = "./cookies_snapshot"
 sign.saveCookiesToDir(cookie_path_dir)
 
-# Create a ChatBot
 chatbot = hugchat.ChatBot(cookies=cookies.get_dict())  # or cookie_path="usercookies/<email>.json"
 
 # non stream response
