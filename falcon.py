@@ -10,7 +10,7 @@ email = config.get('auth', 'HUG_EMAIL')
 password = config.get('auth', 'HUG_PASSWORD')
 
 # Log in to huggingface and grant authorization to huggingchat
-sign = Login(email, password)
+sign = Login("andresiandd@gmail.com", "333221333221wW!")
 cookies = sign.login()
 
 # Save cookies to the local directory
